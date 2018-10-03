@@ -3,6 +3,7 @@ package org.bildit.model;
 public class Contact {
 	
 	private int contactId;
+	private int userId;
 	private String contactName;
 	private String phoneNumber;
 	
@@ -21,6 +22,12 @@ public class Contact {
 	public void setContactId(int contactId) {
 		this.contactId = contactId;
 	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public String getContactName() {
 		return contactName;
 	}
@@ -34,9 +41,4 @@ public class Contact {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	@Override
-	public String toString() {
-		return "Contact ID:" + contactId + ", contact name:"
-				+ contactName + ", phone number:" + phoneNumber;
-	}
 }
