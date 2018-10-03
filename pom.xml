@@ -7,6 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>webPhonebook Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
   
     <dependency>
@@ -39,6 +40,21 @@
 		<scope>provided</scope>
 	</dependency>
     
+	<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
+	<dependency>
+    	<groupId>javax.servlet.jsp.jstl</groupId>
+    	<artifactId>jstl-api</artifactId>
+    	<version>1.2</version>
+	</dependency>
+    
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+
   </dependencies>
   <build>
     <finalName>webPhonebook</finalName>
