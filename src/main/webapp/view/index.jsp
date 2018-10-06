@@ -15,10 +15,10 @@
 	<div id="landingWrapper">
 
 		<div id="registrationForm">
-			<form action="" method="post">
+			<form action="/registration" method="post">
 				<input type="text" name="firstName" id="firstName" placeholder="First name">
 				<input type="text" name="lastName" id="lastName" placeholder="Last name"><br>
-				<input type="text" name="password" id="password" placeholder="Pasword"><br>
+				<input type="password" name="password" id="password" placeholder="Pasword"><br>
 
 				<input type="submit" name="submit" value="Sign In">
 			</form>

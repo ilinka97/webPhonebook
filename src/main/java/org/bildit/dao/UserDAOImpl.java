@@ -10,6 +10,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	Connection connection=ConnectionManager.getInstance().getConnection();
 	
+	@Override
 	public boolean addUser(User user) {
 		String query="INSERT INTO user(first_name,last_name,password) VALUES (?,?,?)";
 		PreparedStatement statement=null;
@@ -32,6 +33,7 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
+	@Override
 	public User getUserById(int id) {
 		
 		String query="SELECT * FROM user WHERE user_id=?";
@@ -62,6 +64,7 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 	
+	@Override
 	public User getUserByFirstName(String firstName) {
 		
 		String qurey="SELECT * FROM user WHERE first_name=?";

@@ -13,6 +13,7 @@ public class ContactDAOImpl implements ContactDAO{
 	
 	Connection connection=ConnectionManager.getInstance().getConnection();
 	
+	@Override
 	public boolean addContact(Contact contact) {
 		
 		String query="INSERT INTO contact(contact_name,phone_number, user_id) VALUES (?,?,?)";
@@ -37,6 +38,7 @@ public class ContactDAOImpl implements ContactDAO{
 		return false;
 	}
 
+	@Override
 	public boolean editContact(Contact contact) {
 		
 		String query="UPDATE contact SET contact_name=?, phone_number=? WHERE contact_id=? ";
@@ -64,6 +66,7 @@ public class ContactDAOImpl implements ContactDAO{
 		return false;
 	}
 
+	@Override
 	public boolean deleteContact(Contact contact) {
 		
 		String query="DELETE FROM contact WHERE contact_id=?";
@@ -86,6 +89,7 @@ public class ContactDAOImpl implements ContactDAO{
 		return false;
 	}
 
+	@Override
 	public ArrayList<Contact> getAllContactsByUser(User user) {
 		
 		String query="SELECT * FROM contact WHERE user_id=?";
@@ -116,6 +120,7 @@ public class ContactDAOImpl implements ContactDAO{
 		return contacts;
 	}
 
+	@Override
 	public Contact getContactByName(String contactName) {
 		
 		String query="SELECT * FROM contact WHERE contact_name=?";
@@ -145,5 +150,5 @@ public class ContactDAOImpl implements ContactDAO{
 		
 		return contact;
 	}	
-	
+
 }
