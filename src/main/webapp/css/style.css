@@ -14,7 +14,8 @@ body {
 }
 
 input[type="text"],
-input[type="search"]{
+input[type="search"],
+input[type="password"]{
 	margin-bottom:15px;
 	padding:7px;
 	border:1px solid #A2A2A2;
@@ -57,7 +58,9 @@ button{
     margin: -130px 0 0 -480px;
 
 }
-#landingWrapper input[type="text"]{
+
+#landingWrapper input[type="text"],
+input[type="password"]{
 	width: 80%;
 }
 
