@@ -9,11 +9,11 @@
 <body>
 
 	<div id="helloHeader">
+	
 		<h2><i class="far fa-user"></i>  Hi Ime Prezime</h2>
-		<!-- formmethod="post" --> 
-		<button type="submit" formaction="/hehe" >
+		<a href="/logout"><button type="submit">
 			Log Out <i class="fas fa-sign-out-alt"></i>
-		</button>
+		</button></a>
 
 	</div>
 
