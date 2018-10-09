@@ -6,40 +6,40 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.bildit.model.User;
-import org.bildit.service.RegistrationService;
+import org.bildit.service.LoginService;
 
-@WebServlet("/registration")
-public class RegistrationController extends HttpServlet {
+@WebServlet("/login")
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("view/index.jsp").forward(request, response);
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String firstName;
-		String lastName;
 		String password;
 		
 		firstName=request.getParameter("firstName");
-		lastName=request.getParameter("lastName");
 		password=request.getParameter("password");
 		
 		User user=new User();
 		user.setFirstName(firstName);
-		user.setLastName(lastName);
 		user.setPassword(password);
 		
-		RegistrationService registrationService=new RegistrationService();
-		if(registrationService.registerUser(user)) {
-			request.getRequestDispatcher("view/index.jsp").forward(request, response);
+		LoginService loginService=new LoginService();
+		
+		if(loginService.login(user)) {
+			HttpSession session=request.getSession();
+			session.setAttribute("user", user);
+			response.sendRedirect("view/home.jsp");
 		}else {
-			request.getRequestDispatcher("view/index.jsp").forward(request, response);
+			response.sendRedirect("view/index.jsp");
 		}
 		
 	}

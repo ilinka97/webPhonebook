@@ -26,7 +26,7 @@
 		</div>
 
 		<div id="loginForm">
-			<form action="" method="post">
+			<form action="/login" method="post">
 				<input type="text" name="firstName" id="firstName" placeholder="First name" required="required"><br>
 				<input type="password" name="password" id="password" placeholder="Pasword" required="required"><br>
 
