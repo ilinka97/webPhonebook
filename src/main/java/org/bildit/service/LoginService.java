@@ -1,7 +1,12 @@
 package org.bildit.service;
 
+import java.util.ArrayList;
+
+import org.bildit.dao.ContactDAO;
+import org.bildit.dao.ContactDAOImpl;
 import org.bildit.dao.UserDAO;
 import org.bildit.dao.UserDAOImpl;
+import org.bildit.model.Contact;
 import org.bildit.model.User;
 
 public class LoginService {
@@ -20,6 +25,16 @@ public class LoginService {
 		}
 		
 		return false;
+		
+	}
+	
+	public ArrayList<Contact> getContactsByUser(User user){
+		
+		ArrayList<Contact> contacts=new ArrayList<>();
+		ContactDAO daoContacts=new ContactDAOImpl();
+		
+		contacts=daoContacts.getAllContactsByUser(user);
+		return contacts;
 		
 	}
 	

@@ -92,7 +92,8 @@ public class ContactDAOImpl implements ContactDAO{
 	@Override
 	public ArrayList<Contact> getAllContactsByUser(User user) {
 		
-		String query="SELECT * FROM contact WHERE user_id=?";
+		//String query="SELECT * FROM contact WHERE user_id=?";
+		String query="SELECT * FROM contact INNER JOIN user ON (contact_id=user_id) WHERE user_id=?";
 		PreparedStatement statement=null;
 		ArrayList<Contact> contacts=new ArrayList<Contact>();
 		ResultSet rs=null;
@@ -101,7 +102,11 @@ public class ContactDAOImpl implements ContactDAO{
 			statement=connection.prepareStatement(query);
 			statement.setInt(1, user.getUserId());
 			rs=statement.executeQuery();
-			
+			//ne vidi kad ima jedno samo
+			if(!rs.isBeforeFirst()){
+				System.out.println("You don't have any contacts.");
+			}else{
+				
 			while(rs.next()) {
 				Contact contact=new Contact();
 				contact.setContactId(rs.getInt("contact_id"));
@@ -110,7 +115,7 @@ public class ContactDAOImpl implements ContactDAO{
 				contact.setUserId(rs.getInt("user_id"));
 				contacts.add(contact);
 			}
-			
+			}
 			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
