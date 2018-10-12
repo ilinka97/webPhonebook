@@ -14,6 +14,7 @@ public class LoginService {
 		
 		if (userByName.getFirstName() != null && userByName.getPassword() != null) {
 			if(userByName.getPassword().equals(user.getPassword())) {
+				user.setLastName(userByName.getLastName());
 				return true;
 			}	
 		}
