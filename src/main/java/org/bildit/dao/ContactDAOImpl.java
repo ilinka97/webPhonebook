@@ -17,25 +17,21 @@ public class ContactDAOImpl implements ContactDAO{
 	public boolean addContact(Contact contact) {
 		
 		String query="INSERT INTO contact(contact_name,phone_number, user_id) VALUES (?,?,?)";
-		PreparedStatement statement=null;
 		
-		try {
-			statement=connection.prepareStatement(query);
+		try (PreparedStatement statement=connection.prepareStatement(query)){
+			
 			statement.setString(1, contact.getContactName());
 			statement.setString(2, contact.getPhoneNumber());
 			statement.setInt(3, contact.getUserId());
 			
-			if (statement.executeUpdate()==1) {
-				return true;
-			}
+			statement.executeUpdate();
+			return true;
 			
-			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
 		
-		return false;
 	}
 
 	@Override
@@ -92,21 +88,14 @@ public class ContactDAOImpl implements ContactDAO{
 	@Override
 	public ArrayList<Contact> getAllContactsByUser(User user) {
 		
-		//String query="SELECT * FROM contact WHERE user_id=?";
-		String query="SELECT * FROM contact INNER JOIN user ON (contact_id=user_id) WHERE user_id=?";
-		PreparedStatement statement=null;
+		String query="SELECT * FROM contact WHERE user_id=?";
 		ArrayList<Contact> contacts=new ArrayList<Contact>();
 		ResultSet rs=null;
 		
-		try {
-			statement=connection.prepareStatement(query);
+		try(PreparedStatement statement=connection.prepareStatement(query)) {
 			statement.setInt(1, user.getUserId());
 			rs=statement.executeQuery();
-			//ne vidi kad ima jedno samo
-			if(!rs.isBeforeFirst()){
-				System.out.println("You don't have any contacts.");
-			}else{
-				
+
 			while(rs.next()) {
 				Contact contact=new Contact();
 				contact.setContactId(rs.getInt("contact_id"));
@@ -115,8 +104,7 @@ public class ContactDAOImpl implements ContactDAO{
 				contact.setUserId(rs.getInt("user_id"));
 				contacts.add(contact);
 			}
-			}
-			statement.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

@@ -1,16 +1,12 @@
 package org.bildit.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.bildit.model.Contact;
 import org.bildit.model.User;
 import org.bildit.service.LoginService;
 
@@ -38,13 +34,11 @@ public class LoginController extends HttpServlet {
 		LoginService loginService=new LoginService();
 		
 		if(loginService.login(user)) {
-			ArrayList<Contact> contacts=loginService.getContactsByUser(user);
 			HttpSession session=request.getSession();
 			session.setAttribute("user", user);
-			session.setAttribute("contacts", contacts);
-			response.sendRedirect("view/home.jsp");
+			response.sendRedirect("/home");
 		}else {
-			response.sendRedirect("view/index.jsp");
+			response.sendRedirect("/");
 		}
 		
 	}

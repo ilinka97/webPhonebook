@@ -22,9 +22,9 @@
 
 	<div id="nav">
 		
-		<button type="submit" formaction="/hehe" id="add">
+		<a href="/addContactRedirect"><button type="submit" formaction="/hehe" id="add">
 			<i class="fas fa-plus-circle"></i> Add Contact
-		</button>
+		</button></a>
 		<div id="search">
 			<input type="search" name="searchField" id="searchField" placeholder="Search">
 			<button id="searchButton" formaction="/hehe">

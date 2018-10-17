@@ -22,7 +22,7 @@
 	</div>
 
 	<div id="contactForm">
-		<form action="" method="post">
+		<form action="/addContact" method="post">
 			<input type="text" name="contactName" id="contactName" placeholder="Name"><br>
 			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number"><br>
 
