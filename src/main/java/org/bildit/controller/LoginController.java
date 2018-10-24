@@ -18,7 +18,7 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("view/index.jsp").forward(request, response);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String firstName;
@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("user", user);
 			response.sendRedirect("/home");
 		}else {
-			response.sendRedirect("/");
+			request.getRequestDispatcher("/").forward(request, response);
 		}
 		
 	}

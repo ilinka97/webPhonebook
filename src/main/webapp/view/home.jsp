@@ -50,7 +50,7 @@
 					<td>${contact.getContactName()}</td>
 					<td>${contact.getPhoneNumber()}</td>
 					<td><button class="tableButton">Edit</button></td>
-					<td><button class="tableButton">Delete</button></td>
+					<td><form><button class="tableButton" type="submit" formmethod="get" formaction="deleteContact" value="${contact.getContactId()}" name="delBut">Delete</button></form></td>
 				</tr>
 			</c:forEach>
 
