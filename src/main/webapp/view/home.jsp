@@ -17,7 +17,7 @@
 	</div>
 
 	<div id="coverImage">
-		<h1><i class="fas fa-list-alt"></i>Contacts</h1>
+		<h1><i class="fas fa-list-alt"></i> Contacts</h1>
 	</div>
 
 	<div id="nav">
@@ -27,9 +27,9 @@
 		</button></a>
 		<div id="search">
 			<input type="search" name="searchField" id="searchField" placeholder="Search">
-			<button id="searchButton" formaction="/hehe">
+			<a href="view/searchContacts.jsp"><button id="searchButton" formaction="/hehe">
 				<i class="fas fa-search"></i>
-			</button>
+			</button></a>
 		</div>
 	</div>
 
