@@ -11,5 +11,5 @@ public interface ContactDAO {
 	boolean deleteContact(Contact contact);
 	ArrayList<Contact> getAllContactsByUser(User user);
 	Contact getContactByName(String contactName);
-
+	Contact getContactById(int id);
 }

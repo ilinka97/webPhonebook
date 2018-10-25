@@ -21,9 +21,9 @@
 	</div>
 
 	<div id="contactForm">
-		<form action="" method="post">
-			<input type="text" name="contactName" id="contactName" placeholder="existing Name"><br>
-			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="existing Phone Number"><br>
+		<form action="/editContact" method="post">
+			<input type="text" name="contactName" id="contactName" placeholder="new name"><br>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="new number"><br>
 
 			<input type="submit" name="submit" value="Save">
 		</form>	

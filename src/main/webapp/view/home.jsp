@@ -49,8 +49,8 @@
 					<th class="numeration">${loop.index+1}</th>
 					<td>${contact.getContactName()}</td>
 					<td>${contact.getPhoneNumber()}</td>
-					<td><button class="tableButton">Edit</button></td>
-					<td><form><button class="tableButton" type="submit" formmethod="get" formaction="deleteContact" value="${contact.getContactId()}" name="delBut">Delete</button></form></td>
+					<td><form action="/editContactRedirect"><button class="tableButton" type="submit" value="${contact.getContactId()}" name="editButton">Edit</button></form></td>
+					<td><form><button class="tableButton" type="submit" formmethod="get" formaction="deleteContact" value="${contact.getContactId()}" name="deleteButton">Delete</button></form></td>
 				</tr>
 			</c:forEach>
 

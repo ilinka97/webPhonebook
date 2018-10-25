@@ -142,6 +142,37 @@ public class ContactDAOImpl implements ContactDAO{
 		}
 		
 		return contact;
+	}
+
+	@Override
+	public Contact getContactById(int id) {
+		
+		String query="SELECT * FROM contact WHERE contact_id=?";
+		PreparedStatement statement=null;
+		Contact contact=new Contact();
+		ResultSet rs=null;
+		
+		try {
+			statement=connection.prepareStatement(query);
+			statement.setInt(1, id);
+			rs=statement.executeQuery();
+			
+			if(rs.next()){
+				contact.setContactId(rs.getInt("contact_id"));
+				contact.setContactName(rs.getString("contact_name"));
+				contact.setPhoneNumber(rs.getString("phone_number"));
+				contact.setUserId(rs.getInt("user_id"));
+				
+				rs.close();
+			}
+			
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return contact;
 	}	
 
 }
