@@ -22,8 +22,8 @@
 
 	<div id="contactForm">
 		<form action="/editContact" method="post">
-			<input type="text" name="contactName" id="contactName" placeholder="new name"><br>
-			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="new number"><br>
+			<input type="text" name="contactName" id="contactName" placeholder="${contact.getContactName()}"><br>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="${contact.getPhoneNumber()}"><br>
 
 			<input type="submit" name="submit" value="Save">
 		</form>	
