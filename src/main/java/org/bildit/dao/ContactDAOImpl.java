@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.bildit.model.Contact;
 import org.bildit.model.User;
 
@@ -86,10 +88,10 @@ public class ContactDAOImpl implements ContactDAO{
 	}
 
 	@Override
-	public ArrayList<Contact> getAllContactsByUser(User user) {
+	public List<Contact> getAllContactsByUser(User user) {
 		
 		String query="SELECT * FROM contact WHERE user_id=?";
-		ArrayList<Contact> contacts=new ArrayList<Contact>();
+		List<Contact> contacts=new ArrayList<Contact>();
 		ResultSet rs=null;
 		
 		try(PreparedStatement statement=connection.prepareStatement(query)) {

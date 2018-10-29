@@ -26,10 +26,14 @@
 			<i class="fas fa-plus-circle"></i> Add Contact
 		</button></a>
 		<div id="search">
+		
+			<form action="/searchContacts" method="get">
 			<input type="search" name="searchField" id="searchField" placeholder="Search">
-			<a href="view/searchContacts.jsp"><button id="searchButton" formaction="/hehe">
+			<button id="searchButton" type="submit">
 				<i class="fas fa-search"></i>
-			</button></a>
+			</button>
+			</form>
+			
 		</div>
 	</div>
 

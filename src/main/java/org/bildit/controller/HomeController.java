@@ -1,7 +1,7 @@
 package org.bildit.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +21,7 @@ public class HomeController extends HttpServlet {
 		HttpSession session=request.getSession();
 		ShowContactsService getContactsService=new ShowContactsService();
 		User user=(User) session.getAttribute("user");
-		ArrayList<Contact> contacts=getContactsService.getContactsByUser(user);
+		List<Contact> contacts=getContactsService.getContactsByUser(user);
 		session.setAttribute("contacts", contacts);
 		request.getRequestDispatcher("view/home.jsp").forward(request, response);
 		

@@ -9,7 +9,7 @@
 <body>
 	<div id="helloHeader">
 	
-		<h2><i class="far fa-user"></i>  Hi Ime Prezime</h2>
+		<h2><i class="far fa-user"></i>  <c:out value="${user.getFirstName()}"/> <c:out value="${user.getLastName()}"/></h2>
 		<a href="/logout"><button type="submit">
 			Log Out <i class="fas fa-sign-out-alt"></i>
 		</button></a>

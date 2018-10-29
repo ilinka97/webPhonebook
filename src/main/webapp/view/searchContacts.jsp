@@ -29,21 +29,17 @@
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
-			<tr>
-				<th class="numeration">1</th>
-				<td>ko</td>
-				<td>02646</td>
-				<td><button class="tableButton">Edit</button></td>
-				<td><button class="tableButton">Delete</button></td>
-
-			</tr>
-			<tr>
-				<th class="numeration">2</th>
-				<td>sdfg</td>
-				<td>216464</td>
-				<td><button class="tableButton">Edit</button></td>
-				<td><button class="tableButton">Delete</button></td>
-			</tr>
+			
+			<c:forEach items="${searchedContacts}" var="contact" varStatus="loop">
+				<tr>
+					<th class="numeration">${loop.index+1}</th>
+					<td>${contact.getContactName()}</td>
+					<td>${contact.getPhoneNumber()}</td>
+					<td><form action="/editContactRedirect"><button class="tableButton" type="submit" value="${contact.getContactId()}" name="editButton">Edit</button></form></td>
+					<td><form><button class="tableButton" type="submit" formmethod="get" formaction="deleteContact" value="${contact.getContactId()}" name="deleteButton">Delete</button></form></td>
+				</tr>
+			</c:forEach>
+			
 		</table>
 
 	</div>
