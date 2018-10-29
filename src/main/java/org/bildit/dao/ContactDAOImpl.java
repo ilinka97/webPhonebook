@@ -50,10 +50,7 @@ public class ContactDAOImpl implements ContactDAO{
 			
 			if (statement.executeUpdate()==1) {
 				return true;
-			}/*else{
-			System.out.println("shit happend.");
 			}
-			*/
 			
 			statement.close();
 		} catch (SQLException e) {
