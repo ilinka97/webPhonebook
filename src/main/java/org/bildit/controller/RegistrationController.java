@@ -36,9 +36,15 @@ public class RegistrationController extends HttpServlet {
 		user.setPassword(password);
 		
 		RegistrationService registrationService=new RegistrationService();
+		String registrationMessage=null;
+		
 		if(registrationService.registerUser(user)) {
-			request.getRequestDispatcher("view/index.jsp").forward(request, response);
+			registrationMessage="You have been successfully registered!";
+			request.setAttribute("registrationMessage", registrationMessage);
+			request.getRequestDispatcher("view/index.jsp").forward(request, response);	
 		}else {
+			registrationMessage="Something went wrong. Please try again!";
+			request.setAttribute("registrationMessage", registrationMessage);
 			request.getRequestDispatcher("view/index.jsp").forward(request, response);
 		}
 		

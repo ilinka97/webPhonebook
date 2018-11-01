@@ -15,6 +15,7 @@
 	<div id="landingWrapper">
 
 		<div id="registrationForm">
+			
 			<form action="/registration" method="post">
 				<input type="text" name="firstName" id="firstName" placeholder="First name" required="required">
 				<input type="text" name="lastName" id="lastName" placeholder="Last name"><br>
@@ -22,7 +23,9 @@
 
 				<input type="submit" name="submit" value="Sign In">
 			</form>
-
+			
+			<br>
+			<c:out value="${registrationMessage}"/>
 		</div>
 
 		<div id="loginForm">
@@ -33,6 +36,8 @@
 				<input type="submit" name="submit" value="Log In">
 			</form>
 			
+			<br>
+			<c:out value="${loginMessage}"/>
 		</div>
 
 	</div>

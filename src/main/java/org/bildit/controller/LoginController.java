@@ -38,6 +38,8 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("user", user);
 			response.sendRedirect("/home");
 		}else {
+			String loginMessage="Invalid credentials. Please try again!";
+			request.setAttribute("loginMessage", loginMessage);
 			request.getRequestDispatcher("/").forward(request, response);
 		}
 		
