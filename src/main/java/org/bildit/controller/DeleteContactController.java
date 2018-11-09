@@ -1,11 +1,13 @@
 package org.bildit.controller;
 
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.bildit.dao.ContactDAOImpl;
 import org.bildit.model.Contact;
 import org.bildit.service.DeleteContactService;
 
@@ -22,7 +24,7 @@ public class DeleteContactController extends HttpServlet {
 		int id=Integer.parseInt(idStr);
 		contact.setContactId(id);
 		
-		if(delContactService.deleteContact(contact)) {
+		if(delContactService.deleteContact(contact, new ContactDAOImpl())) {
 			request.getRequestDispatcher("/home").forward(request, response);
 		}else {
 			request.getRequestDispatcher("view/home.jsp").forward(request, response);
