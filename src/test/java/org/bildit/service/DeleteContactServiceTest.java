@@ -39,7 +39,7 @@ public class DeleteContactServiceTest {
 	}
 	
 	@Test
-	public void ShouldReturnTrueIfContactIsNotDeleted() {
+	public void ShouldReturnFalseIfContactIsNotDeleted() {
 		
 		when(daoContact.deleteContact(contact)).thenReturn(false);
 		
