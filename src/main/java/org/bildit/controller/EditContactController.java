@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.bildit.dao.ContactDAOImpl;
 import org.bildit.model.Contact;
 import org.bildit.service.EditContactService;
 
@@ -31,7 +33,7 @@ public class EditContactController extends HttpServlet {
 		
 		EditContactService editContService=new EditContactService();
 		
-		if (editContService.editContact(contact)) {
+		if (editContService.editContact(contact, new ContactDAOImpl())) {
 			response.sendRedirect("/home");
 		}else {
 			request.getRequestDispatcher("view/addContact.jsp").forward(request, response);

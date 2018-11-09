@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.bildit.dao.ContactDAOImpl;
 import org.bildit.model.Contact;
 import org.bildit.service.EditContactService;
 
@@ -19,7 +21,7 @@ public class EditContactRedirect extends HttpServlet {
 		int id=Integer.parseInt(idStr);
 		
 		EditContactService editConService=new EditContactService();
-		Contact contact=editConService.getContactById(id);
+		Contact contact=editConService.getContactById(id, new ContactDAOImpl());
 		contact.setContactId(id);
 		
 		request.setAttribute("contact", contact);
