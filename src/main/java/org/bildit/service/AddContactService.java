@@ -1,16 +1,13 @@
 package org.bildit.service;
 
 import org.bildit.dao.ContactDAO;
-import org.bildit.dao.ContactDAOImpl;
 import org.bildit.model.Contact;
 
 public class AddContactService {
 
-	public boolean addContact(Contact contact) {
+	public boolean addContact(Contact contact, ContactDAO daoContact) {
 		
-		ContactDAO daoContact=new ContactDAOImpl();
-	
-		if (daoContact.addContact(contact)) {
+		if (daoContact.addContact(contact)) {   
 			return true;
 		}else {
 			return false;

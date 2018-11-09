@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.bildit.dao.ContactDAOImpl;
 import org.bildit.model.Contact;
 import org.bildit.model.User;
 import org.bildit.service.AddContactService;
@@ -37,12 +38,12 @@ public class AddContactController extends HttpServlet {
 		
 		AddContactService addContService=new AddContactService();
 		
-		if (addContService.addContact(contact)) {
+		if (addContService.addContact(contact,new ContactDAOImpl())) {
 			response.sendRedirect("/home");
 		}else {
 			request.getRequestDispatcher("view/addContact.jsp").forward(request, response);
 		}
 			
-	}
+	}  
 
 }
