@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.bildit.dao.UserDAOImpl;
 import org.bildit.model.User;
 import org.bildit.service.LoginService;
 
@@ -33,7 +35,7 @@ public class LoginController extends HttpServlet {
 		
 		LoginService loginService=new LoginService();
 		
-		if(loginService.login(user)) {
+		if(loginService.login(user, new UserDAOImpl())) {
 			HttpSession session=request.getSession();
 			session.setAttribute("user", user);
 			response.sendRedirect("/home");
