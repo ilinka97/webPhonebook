@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.bildit.dao.UserDAOImpl;
 import org.bildit.model.User;
 import org.bildit.service.RegistrationService;
 
@@ -38,7 +39,7 @@ public class RegistrationController extends HttpServlet {
 		RegistrationService registrationService=new RegistrationService();
 		String registrationMessage=null;
 		
-		if(registrationService.registerUser(user)) {
+		if(registrationService.registerUser(user, new UserDAOImpl())) {
 			registrationMessage="You have been successfully registered!";
 			request.setAttribute("registrationMessage", registrationMessage);
 			request.getRequestDispatcher("view/index.jsp").forward(request, response);	
