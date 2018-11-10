@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.bildit.dao.ContactDAOImpl;
 import org.bildit.model.Contact;
 import org.bildit.model.User;
 import org.bildit.service.ShowContactsService;
@@ -21,7 +23,7 @@ public class HomeController extends HttpServlet {
 		HttpSession session=request.getSession();
 		ShowContactsService getContactsService=new ShowContactsService();
 		User user=(User) session.getAttribute("user");
-		List<Contact> contacts=getContactsService.getContactsByUser(user);
+		List<Contact> contacts=getContactsService.getContactsByUser(user, new ContactDAOImpl());
 		session.setAttribute("contacts", contacts);
 		request.getRequestDispatcher("view/home.jsp").forward(request, response);
 		
